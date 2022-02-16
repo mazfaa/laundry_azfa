@@ -1,5 +1,5 @@
 <x-master>
-    <x-slot name="header_page">Create Member</x-slot>
+    <x-slot name="header_page"><i class="bi bi-person-plus-fill"></i> Create Member</x-slot>
     <x-slot name="header_btn">
       <a href="{{ route('member.index') }}" class="btn btn-sm btn-primary"><i class="bi bi-arrow-return-left"></i> Return Back</a>
     </x-slot>

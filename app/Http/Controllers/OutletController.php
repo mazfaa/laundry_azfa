@@ -47,7 +47,7 @@ class OutletController extends Controller
      */
     public function show(Outlet $outlet)
     {
-        return view('outlet.show', ['outlet' => Outlet::find($outlet)->first()]);
+        return view('outlet.show', ['outlet' => $outlet]);
     }
 
     /**
@@ -58,7 +58,7 @@ class OutletController extends Controller
      */
     public function edit(Outlet $outlet)
     {
-        return view('outlet.edit', ['outlet' => Outlet::find($outlet)->first()]);
+        return view('outlet.edit', ['outlet' => $outlet]);
     }
 
     /**
@@ -75,7 +75,6 @@ class OutletController extends Controller
             'address' => $request->address,
             'phone' => $request->phone,
         ]);
-
         return redirect('outlet')->with('status', 'Outlet Successfully Edited!');
     }
 
@@ -87,8 +86,7 @@ class OutletController extends Controller
      */
     public function destroy($id)
     {
-        Outlet::where('id', $id)->delete();
-
+        Outlet::whereId($id)->delete();
         return redirect('outlet')->with('deleted', 'Outlet Successfully Deleted!');
     }
 }

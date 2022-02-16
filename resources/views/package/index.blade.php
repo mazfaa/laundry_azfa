@@ -16,12 +16,12 @@
       </div>
     @endif
   </x-slot>
-  <x-slot name="header_page">Tabel Package</x-slot>
+  <x-slot name="header_page"><i class="bi bi-box"></i> Tabel Package</x-slot>
   <x-slot name="header_btn">
     <a href="{{ route('package.create') }}" class="btn btn-sm btn-primary"><i class="bi bi-plus"></i> Add Package</a>
   </x-slot>
   <x-slot name="content_page">
-    <table class="table table-bordered" id="package-table">
+    <table class="table table-bordered text-center" id="package-table">
       <thead>
         <tr>
           <th>#</th>
@@ -39,16 +39,16 @@
         @endphp
         @foreach ($packages as $package)
         <tr>
-          <td>{{ $no++; }}</td>
-          <td>{{ $package->package_name }}</td>
-          <td>{{ $package->type }}</td>
-          <td>@currency($package->price)</td>
-          <td>{{ $package->created_at }}</td>
-          <td>{{ $package->updated_at }}</td>
-          <td>
+          <td class="align-middle">{{ $no++; }}</td>
+          <td class="align-middle">{{ $package->package_name }}</td>
+          <td class="align-middle">{{ $package->type }}</td>
+          <td class="align-middle">@currency($package->price)</td>
+          <td class="align-middle">{{ $package->created_at }}</td>
+          <td class="align-middle">{{ $package->updated_at }}</td>
+          <td class="align-middle">
             <a href="{{ route('package.show', $package->id) }}" class="btn btn-sm btn-primary"><i class="bi bi-eye"></i> Show</a>
             <a href="{{ route('package.edit', $package->id) }}" class="btn btn-sm btn-success"><i class="bi bi-pencil-square"></i> Edit</a>
-            <form action="{{ route('package.destroy', $package->id) }}" method="post">
+            <form action="{{ route('package.destroy', $package->id) }}" method="post" class="d-inline">
               @csrf
               @method('delete')
               <button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i> Delete</button>

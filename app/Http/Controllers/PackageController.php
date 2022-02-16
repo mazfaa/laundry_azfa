@@ -38,7 +38,6 @@ class PackageController extends Controller
     public function store(PackageRequest $request)
     {
         $request->price = (int)str_replace('.', '', str_replace('Rp. ', '', $request->price));
-        // dd($request->all());
         Package::create([
             'outlet_id' => $request->outlet_id,
             'type' => $request->type,
@@ -56,7 +55,7 @@ class PackageController extends Controller
      */
     public function show(Package $package)
     {
-        return view('package.show', ['package' => Package::find($package)->first()]);
+        return view('package.show', ['package' => $package]);
     }
 
     /**
@@ -68,7 +67,7 @@ class PackageController extends Controller
     public function edit(Package $package)
     {
         return view('package.edit', [
-            'package' => Package::find($package)->first(),
+            'package' => $package,
             'outlets' => Outlet::all(),
         ]);
     }
@@ -100,8 +99,7 @@ class PackageController extends Controller
      */
     public function destroy($id)
     {
-        Package::where('id', $id)->delete();
-
+        Package::whereId($id)->delete();
         return redirect('package')->with('deleted', 'Package Successfully Deleted!');
     }
 }

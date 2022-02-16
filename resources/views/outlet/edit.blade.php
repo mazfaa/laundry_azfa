@@ -1,5 +1,5 @@
 <x-master>
-  <x-slot name="header_page">Edit Outlet</x-slot>
+  <x-slot name="header_page"><i class="bi bi-shop"></i> Edit Outlet</x-slot>
   <x-slot name="header_btn">
     <a href="{{ route('outlet.index') }}" class="btn btn-sm btn-primary"><i class="bi bi-arrow-return-left"></i> Return Back</a>
   </x-slot>

@@ -16,12 +16,12 @@
       </div>
     @endif
   </x-slot>
-  <x-slot name="header_page">Tabel Outlet</x-slot>
+  <x-slot name="header_page"><i class="bi bi-shop"></i> Tabel Outlet</x-slot>
   <x-slot name="header_btn">
     <a href="{{ route('outlet.create') }}" class="btn btn-sm btn-primary"><i class="bi bi-plus"></i> Add Outlet</a>
   </x-slot>
   <x-slot name="content_page">
-    <table class="table table-bordered" id="outlet-table">
+    <table class="table table-bordered text-center align-items-center" id="outlet-table">
       <thead>
         <tr>
           <th>#</th>
@@ -39,16 +39,16 @@
         @endphp
         @foreach ($outlets as $outlet)
         <tr>
-          <td>{{ $no++; }}</td>
-          <td>{{ $outlet->name }}</td>
-          <td>{{ $outlet->address }}</td>
-          <td>{{ $outlet->phone }}</td>
-          <td>{{ $outlet->created_at }}</td>
-          <td>{{ $outlet->updated_at }}</td>
-          <td>
+          <td class="align-middle">{{ $no++; }}</td>
+          <td class="align-middle">{{ $outlet->name }}</td>
+          <td class="align-middle">{{ $outlet->address }}</td>
+          <td class="align-middle">{{ $outlet->phone }}</td>
+          <td class="align-middle">{{ $outlet->created_at }}</td>
+          <td class="align-middle">{{ $outlet->updated_at }}</td>
+          <td class="align-middle">
             <a href="{{ route('outlet.show', $outlet->id) }}" class="btn btn-sm btn-primary"><i class="bi bi-eye"></i> Show</a>
             <a href="{{ route('outlet.edit', $outlet->id) }}" class="btn btn-sm btn-success"><i class="bi bi-pencil-square"></i> Edit</a>
-            <form action="{{ route('outlet.destroy', $outlet->id) }}" method="post">
+            <form action="{{ route('outlet.destroy', $outlet->id) }}" method="post" class="d-inline">
               @csrf
               @method('delete')
               <button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i> Delete</button>

@@ -16,12 +16,12 @@
       </div>
       @endif
     </x-slot>
-    <x-slot name="header_page">Tabel Member</x-slot>
+    <x-slot name="header_page"><i class="bi bi-people-fill"></i>Tabel Member</x-slot>
     <x-slot name="header_btn">
       <a href="{{ route('member.create') }}" class="btn btn-sm btn-primary"><i class="bi bi-plus"></i> Add Member</a>
     </x-slot>
     <x-slot name="content_page">
-      <table class="table table-bordered" id="member-table">
+      <table class="table table-bordered text-center" id="member-table">
         <thead>
           <tr>
             <th>#</th>
@@ -40,21 +40,24 @@
           @endphp
           @foreach ($members as $member)
           <tr>
-            <td>{{ $no++; }}</td>
-            <td>{{ $member->name }}</td>
-            <td>{{ $member->address }}</td>
-            <td>{{ $member->gender }}</td>
-            <td>{{ $member->phone }}</td>
-            <td>{{ $member->created_at }}</td>
-            <td>{{ $member->updated_at }}</td>
-            <td>
-              <a href="{{ route('member.show', $member->id) }}" class="btn btn-sm btn-primary"><i class="bi bi-eye"></i> Show</a>
-              <a href="{{ route('member.edit', $member->id) }}" class="btn btn-sm btn-success"><i class="bi bi-pencil-square"></i> Edit</a>
-              <form action="{{ route('member.destroy', $member->id) }}" method="post">
-                @csrf
-                @method('delete')
-                <button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i> Delete</button>
-              </form>
+            <td class="align-middle">{{ $no++; }}</td>
+            <td class="align-middle">{{ $member->name }}</td>
+            <td class="align-middle">{{ $member->address }}</td>
+            <td class="align-middle">{{ $member->gender }}</td>
+            <td class="align-middle">{{ $member->phone }}</td>
+            <td class="align-middle">{{ $member->created_at }}</td>
+            <td class="align-middle">{{ $member->updated_at }}</td>
+            <td class="align-middle">
+                <div class="d-flex">
+                    <a href="{{ route('member.show', $member->id) }}" class="btn btn-sm btn-primary d-flex gap-1"><i class="bi bi-eye"></i> Show</a>
+                    <a href="{{ route('member.edit', $member->id) }}" class="btn btn-sm btn-success d-flex gap-1"><i class="bi bi-pencil-square"></i> Edit</a>
+                    <form action="{{ route('member.destroy', $member->id) }}" method="post">
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="btn btn-sm btn-danger d-flex gap-1"><i class="bi bi-trash"></i> Delete</button>
+                    </form>
+                </div>
+
             </td>
           </tr>
           @endforeach

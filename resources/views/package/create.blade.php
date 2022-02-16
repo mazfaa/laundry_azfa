@@ -1,5 +1,5 @@
 <x-master>
-  <x-slot name="header_page">Create Package</x-slot>
+  <x-slot name="header_page"><i class="bi bi-box"></i> Create Package</x-slot>
   <x-slot name="header_btn">
     <a href="{{ route('package.index') }}" class="btn btn-sm btn-primary"><i class="bi bi-arrow-return-left"></i> Return Back</a>
   </x-slot>
@@ -24,8 +24,9 @@
                     </select>
                   </div>
                   <div class="mb-3">
+                    <label for="type" class="form-label">Outlet</label>
                     <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="outlet_id">
-                      <option selected disabled>-- Select Package Type --</option>
+                      <option selected disabled>-- Select Outlet --</option>
                       @foreach ($outlets as $outlet)
                         <option value="{{ $outlet->id }}">{{ $outlet->name }}</option>
                       @endforeach

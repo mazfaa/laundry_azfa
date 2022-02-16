@@ -52,7 +52,7 @@ class MemberController extends Controller
      */
     public function show(Member $member)
     {
-        return view('member.show', ['member' => Member::find($member)->first()]);
+        return view('member.show', ['member' => $member]);
     }
 
     /**
@@ -63,9 +63,7 @@ class MemberController extends Controller
      */
     public function edit(Member $member)
     {
-        return view('member.edit', [
-            'member' => Member::find($member)->first(),
-        ]);
+        return view('member.edit', ['member' => $member,]);
     }
 
     /**
@@ -83,7 +81,6 @@ class MemberController extends Controller
             'gender' => $request->gender,
             'phone' => $request->phone,
         ]);
-
         return redirect('member')->with('status', 'Member Successfully Edited!');
     }
 
@@ -95,8 +92,7 @@ class MemberController extends Controller
      */
     public function destroy($id)
     {
-        Member::where('id', $id)->delete();
-
+        Member::whereId($id)->delete();
         return redirect('member')->with('deleted', 'Member Successfully Deleted!');
     }
 }
