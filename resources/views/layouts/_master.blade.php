@@ -32,7 +32,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><span>The Mentor's Laundry</span></a>
+              <a href="index.html" class="site_title"><span><i class="fa fa-paw"></i> Mentor's Laundry</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -44,7 +44,9 @@
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>The Mentor</h2>
+                <h2>
+                    {{ Auth::user()->name }}
+                </h2>
               </div>
               <div class="clearfix"></div>
             </div>
@@ -188,10 +190,15 @@
                 <ul class=" navbar-right">
                   <li class="nav-item dropdown open" style="padding-left: 15px;">
                     <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                      <img src="{{ asset('assets') }}/images/img.jpg" alt="">The Mentor
+                      <img src="{{ asset('assets') }}/images/img.jpg" alt=""> {{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn text-center">
+                                <i class="fa fa-sign-out pull-right"></i> Logout
+                            </button>
+                        </form>
                     </div>
                   </li>
                 </ul>
