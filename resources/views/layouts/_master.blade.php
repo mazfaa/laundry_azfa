@@ -64,8 +64,8 @@
                       <li><a href="{{ route('outlet.index') }}">Outlet</a></li>
                       <li><a href="{{ route('package.index') }}">Paket</a></li>
                       <li><a href="{{ route('member.index') }}">Member</a></li>
-                      {{-- <li><a href="{{ route('user.index') }}">User</a></li> --}}
-                      {{-- <li><a href="{{ route('transaction.index') }}">Transaksi</a></li> --}}
+                      <li><a href="{{ route('transaction.index') }}">Transaksi</a></li>
+                      <li><a href="{{ route('report.index') }}">Laporan</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
