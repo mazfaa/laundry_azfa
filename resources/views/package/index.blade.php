@@ -18,7 +18,10 @@
   </x-slot>
   <x-slot name="header_page"><i class="bi bi-box"></i> Tabel Package</x-slot>
   <x-slot name="header_btn">
-    <a href="{{ route('package.create') }}" class="btn btn-sm btn-primary"><i class="bi bi-plus"></i> Add Package</a>
+    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#packageModal">
+      <i class="bi bi-plus"></i> Add Package</a>
+    </button>
+    @include('package.create')
   </x-slot>
   <x-slot name="content_page">
     <table class="table table-bordered text-center" id="package-table">
@@ -38,23 +41,26 @@
           $no = 1;
         @endphp
         @foreach ($packages as $package)
+        @include('package.edit')
         <tr>
           <td class="align-middle">{{ $no++; }}</td>
           <td class="align-middle">{{ $package->package_name }}</td>
-          <td class="align-middle">{{ $package->type }}</td>
+          <td class="align-middle">
+            <span class="badge bg-primary">{{ $package->type }}</span>
+          </td>
           <td class="align-middle">@currency($package->price)</td>
           <td class="align-middle">{{ $package->created_at }}</td>
           <td class="align-middle">{{ $package->updated_at }}</td>
           <td class="align-middle">
-            <a href="{{ route('package.show', $package->id) }}" class="btn btn-sm btn-primary"><i class="bi bi-eye"></i> Show</a>
-            <a href="{{ route('package.edit', $package->id) }}" class="btn btn-sm btn-success"><i class="bi bi-pencil-square"></i> Edit</a>
-            <form action="{{ route('package.destroy', $package->id) }}" method="post" class="d-inline">
-              @csrf
-              @method('delete')
-              <button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i> Delete</button>
-            </form>
+            <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#editPackageModal{{ $package->id }}">
+              <i class="bi bi-pencil-square"></i> Edit
+            </button>
+            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deletePackageModal{{ $package->id }}">
+              <i class="bi bi-trash"></i> Delete
+            </button>
           </td>
         </tr>
+        @include('package.delete')
         @endforeach
       </tbody>
     </table>

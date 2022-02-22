@@ -22,10 +22,6 @@ class OutletController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('outlet.create');
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -45,10 +41,6 @@ class OutletController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Outlet $outlet)
-    {
-        return view('outlet.show', ['outlet' => $outlet]);
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -56,10 +48,6 @@ class OutletController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Outlet $outlet)
-    {
-        return view('outlet.edit', ['outlet' => $outlet]);
-    }
 
     /**
      * Update the specified resource in storage.

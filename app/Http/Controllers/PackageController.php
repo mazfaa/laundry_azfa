@@ -15,7 +15,10 @@ class PackageController extends Controller
      */
     public function index()
     {
-        return view('package.index', ['packages' => Package::orderBy('id')->get()]);
+        return view('package.index', [
+            'outlets' => Outlet::all(),
+            'packages' => Package::orderBy('id')->get(),
+        ]);
     }
 
     /**
@@ -23,11 +26,6 @@ class PackageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        $outlets = Outlet::all();
-        return view('package.create', compact('outlets'));
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -53,10 +51,6 @@ class PackageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Package $package)
-    {
-        return view('package.show', ['package' => $package]);
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -64,13 +58,6 @@ class PackageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Package $package)
-    {
-        return view('package.edit', [
-            'package' => $package,
-            'outlets' => Outlet::all(),
-        ]);
-    }
 
     /**
      * Update the specified resource in storage.

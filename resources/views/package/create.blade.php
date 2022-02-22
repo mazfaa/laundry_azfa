@@ -1,13 +1,13 @@
-<x-master>
-  <x-slot name="header_page"><i class="bi bi-box"></i> Create Package</x-slot>
-  <x-slot name="header_btn">
-    <a href="{{ route('package.index') }}" class="btn btn-sm btn-primary"><i class="bi bi-arrow-return-left"></i> Return Back</a>
-  </x-slot>
-  <x-slot name="content_page">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-            <div class="card">
+<!-- Modal -->
+<div class="modal fade" id="packageModal" tabindex="-1" aria-labelledby="packageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="packageModalLabel"><i class="bi bi-box"></i> Create Package </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card">
               <div class="card-header">Create New Package</div>
               <div class="card-body">
                 <form action="{{ route('package.store') }}" method="post">
@@ -18,7 +18,7 @@
                       <option selected disabled>-- Select Package Type --</option>
                       <option value="Kiloan">Kiloan</option>
                       <option value="Selimut">Selimut</option>
-                      <option value="Bed Cover">Bed Cover</option>
+                      <option value="bed_cover">Bed Cover</option>
                       <option value="Kaos">Kaos</option>
                       <option value="Lain">Lain</option>
                     </select>
@@ -54,8 +54,6 @@
                 </form>
               </div>
             </div>
-        </div>
-      </div>
     </div>
-  </x-slot>
-</x-master>
+  </div>
+</div>

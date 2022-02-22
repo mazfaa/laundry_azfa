@@ -1,0 +1,1 @@
+<li><a href="{{ route('report.index') }}"><i class="bi bi-card-checklist"></i> Laporan</a></li>

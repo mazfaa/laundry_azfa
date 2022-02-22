@@ -18,7 +18,10 @@
   </x-slot>
   <x-slot name="header_page"><i class="bi bi-shop"></i> Tabel Outlet</x-slot>
   <x-slot name="header_btn">
-    <a href="{{ route('outlet.create') }}" class="btn btn-sm btn-primary"><i class="bi bi-plus"></i> Add Outlet</a>
+    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#outletModal">
+      <i class="bi bi-plus"></i> Add Outlet
+    </button>
+    @include('outlet.create')
   </x-slot>
   <x-slot name="content_page">
     <table class="table table-bordered text-center align-items-center" id="outlet-table">
@@ -38,6 +41,7 @@
           $no = 1;
         @endphp
         @foreach ($outlets as $outlet)
+        @include('outlet.edit')
         <tr>
           <td class="align-middle">{{ $no++; }}</td>
           <td class="align-middle">{{ $outlet->name }}</td>
@@ -46,15 +50,15 @@
           <td class="align-middle">{{ $outlet->created_at }}</td>
           <td class="align-middle">{{ $outlet->updated_at }}</td>
           <td class="align-middle">
-            <a href="{{ route('outlet.show', $outlet->id) }}" class="btn btn-sm btn-primary"><i class="bi bi-eye"></i> Show</a>
-            <a href="{{ route('outlet.edit', $outlet->id) }}" class="btn btn-sm btn-success"><i class="bi bi-pencil-square"></i> Edit</a>
-            <form action="{{ route('outlet.destroy', $outlet->id) }}" method="post" class="d-inline">
-              @csrf
-              @method('delete')
-              <button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i> Delete</button>
-            </form>
+            <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#editOutletModal{{ $outlet->id }}">
+              <i class="bi bi-pencil-square"></i> Edit
+            </button>
+            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteOutletModal{{ $outlet->id }}">
+              <i class="bi bi-trash"></i> Delete
+            </button>
           </td>
         </tr>
+        @include('outlet.delete')
         @endforeach
       </tbody>
     </table>

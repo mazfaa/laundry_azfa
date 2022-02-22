@@ -22,10 +22,6 @@ class MemberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('member.create');
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -50,10 +46,6 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Member $member)
-    {
-        return view('member.show', ['member' => $member]);
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -61,10 +53,6 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Member $member)
-    {
-        return view('member.edit', ['member' => $member,]);
-    }
 
     /**
      * Update the specified resource in storage.

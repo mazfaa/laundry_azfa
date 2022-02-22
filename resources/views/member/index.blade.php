@@ -18,7 +18,10 @@
     </x-slot>
     <x-slot name="header_page"><i class="bi bi-people-fill"></i>Tabel Member</x-slot>
     <x-slot name="header_btn">
-      <a href="{{ route('member.create') }}" class="btn btn-sm btn-primary"><i class="bi bi-plus"></i> Add Member</a>
+      <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#memberModal">
+      <i class="bi bi-plus"></i> Add Member</a>
+    </button>
+    @include('member.create')
     </x-slot>
     <x-slot name="content_page">
       <table class="table table-bordered text-center" id="member-table">
@@ -39,6 +42,7 @@
             $no = 1;
           @endphp
           @foreach ($members as $member)
+          @include('member.edit')
           <tr>
             <td class="align-middle">{{ $no++; }}</td>
             <td class="align-middle">{{ $member->name }}</td>
@@ -48,18 +52,15 @@
             <td class="align-middle">{{ $member->created_at }}</td>
             <td class="align-middle">{{ $member->updated_at }}</td>
             <td class="align-middle">
-                <div class="d-flex">
-                    <a href="{{ route('member.show', $member->id) }}" class="btn btn-sm btn-primary d-flex gap-1"><i class="bi bi-eye"></i> Show</a>
-                    <a href="{{ route('member.edit', $member->id) }}" class="btn btn-sm btn-success d-flex gap-1"><i class="bi bi-pencil-square"></i> Edit</a>
-                    <form action="{{ route('member.destroy', $member->id) }}" method="post">
-                        @csrf
-                        @method('delete')
-                        <button type="submit" class="btn btn-sm btn-danger d-flex gap-1"><i class="bi bi-trash"></i> Delete</button>
-                    </form>
-                </div>
-
+              <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#editMemberModal{{ $member->id }}">
+              <i class="bi bi-pencil-square"></i> Edit
+              </button>
+              <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteMemberModal{{ $member->id }}">
+              <i class="bi bi-trash"></i> Delete
+            </button>
             </td>
           </tr>
+          @include('member.delete')
           @endforeach
         </tbody>
       </table>

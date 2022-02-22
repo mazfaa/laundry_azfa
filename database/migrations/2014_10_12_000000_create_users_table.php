@@ -17,7 +17,6 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('outlet_id')->nullable();
             $table->foreign('outlet_id')->references('id')->on('outlets');
-            // $table->foreignId('outlet_id')->constrained('outlets')->onDelete('cascade')->nullable();
             $table->string('name');
             $table->string('username')->unique();
             $table->string('email')->unique();

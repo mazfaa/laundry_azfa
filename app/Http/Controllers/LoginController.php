@@ -19,7 +19,7 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($attributes)) {
-            return redirect('/')->with('success', 'You are now logged in.');
+            return redirect('/');
         }
 
         throw ValidationException::withMessages([
