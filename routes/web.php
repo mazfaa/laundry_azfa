@@ -9,6 +9,7 @@ use App\Http\Controllers\OutletController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\RegistrationController;
 
@@ -25,6 +26,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('outlet', OutletController::class);
     Route::resource('package', PackageController::class);
     Route::resource('member', MemberController::class);
+    Route::resource('inventory', InventoryController::class);
     Route::get('report', [ReportController::class, 'index'])->name('report.index');
     Route::resource('transaction', TransactionController::class);
     Route::post('logout', LogoutController::class)->name('logout');
