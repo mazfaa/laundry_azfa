@@ -48,9 +48,9 @@
                                 <select class="form-select form-select mb-3" aria-label=".form-select example"
                                     name="kondisi">
                                     <option selected>-- Select Kondisi --</option>
-                                    <option value="layak_pakai">layak_pakai</option>
-                                    <option value="rusak_ringan">rusak_ringan</option>
-                                    <option value="rusak_baru">rusak_baru</option>
+                                    <option value="layak_pakai">Layak Pakai</option>
+                                    <option value="rusak_ringan">Rusak Ringan</option>
+                                    <option value="rusak_baru">Rusak Baru</option>
                                 </select>
                             </div>
                             <div class="mb-3">

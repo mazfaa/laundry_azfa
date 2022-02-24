@@ -75,7 +75,6 @@ class PackageController extends Controller
             'package_name' => $request->package_name,
             'price' => $request->price,
         ]);
-
         return redirect('package')->with('status', 'Package Successfully Edited!');
     }
 

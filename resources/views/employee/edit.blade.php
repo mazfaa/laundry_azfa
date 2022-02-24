@@ -51,32 +51,32 @@
                     <option value="L">L</option>
                     <option value="P">P</option>
                   </select>
-              </div>
+                </div>
                 <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" name="username" value="{{ old('username', $employee->username) }}" class="form-control" id="username" placeholder="Username">
-                    @error('username')
-                        <div class="text-danger mt-2">
-                          {{ $message }}
-                        </div>
-                    @enderror
-                  </div>
+                  <label for="username" class="form-label">Username</label>
+                  <input type="text" name="username" value="{{ old('username', $employee->username) }}" class="form-control" id="username" placeholder="Username">
+                  @error('username')
+                    <div class="text-danger mt-2">
+                      {{ $message }}
+                    </div>
+                  @enderror
+                </div>
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="text" name="email" value="{{ old('email', $employee->email) }}" class="form-control" id="email" placeholder="Email Address">
-                    @error('email')
-                        <div class="text-danger mt-2">
-                          {{ $message }}
-                        </div>
-                    @enderror
-                  </div>
+                  <label for="email" class="form-label">Email</label>
+                  <input type="text" name="email" value="{{ old('email', $employee->email) }}" class="form-control" id="email" placeholder="Email Address">
+                  @error('email')
+                    <div class="text-danger mt-2">
+                      {{ $message }}
+                    </div>
+                  @enderror
+                </div>
                 <div class="mb-3">
                   <label for="name" class="form-label">Name</label>
                   <input type="text" name="name" value="{{ old('name', $employee->name) }}" class="form-control" id="name" placeholder="Name">
                   @error('name')
-                      <div class="text-danger mt-2">
-                        {{ $message }}
-                      </div>
+                    <div class="text-danger mt-2">
+                      {{ $message }}
+                    </div>
                   @enderror
                 </div>
                 <button type="submit" class="btn btn-primary"><i class="bi bi-pencil-square"></i> Edit</button>
