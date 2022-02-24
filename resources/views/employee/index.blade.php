@@ -24,8 +24,8 @@
           <th>#</th>
           <th>Outlet id</th>
           <th>Name</th>
-          <th>Gender</th>
           <th>Email</th>
+          <th>Gender</th>
           <th>Role</th>
           <th>Created_at</th>
           <th>Updated_at</th>
@@ -42,10 +42,10 @@
           <td class="align-middle">{{ $no++; }}</td>
           <td class="align-middle">{{ $employee->outlet_id }}</td>
           <td class="align-middle">{{ $employee->name }}</td>
+          <td class="align-middle">{{ $employee->email }}</td>
           <td class="align-middle">
             <span class="badge bg-primary">{{ $employee->gender }}</span>
           </td>
-          <td class="align-middle">{{ $employee->email }}</td>
           <td class="align-middle">
             <span class="badge bg-primary">{{ $employee->role }}</span>
           </td>
