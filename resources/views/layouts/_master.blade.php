@@ -34,8 +34,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.html" class="site_title"><span><i class="fa fa-paw"></i> Mentor's
-                                Laundry</span></a>
+                        <a href="/" class="site_title"><span><i class="fa fa-paw"></i> Mentor'sLaundry</span></a>
                     </div>
 
                     <div class="clearfix"></div>
@@ -43,7 +42,13 @@
                     <!-- menu profile quick info -->
                     <div class="profile clearfix">
                         <div class="profile_pic">
-                            <img src="{{ asset('assets') }}/images/img.jpg" alt="..." class="img-circle profile_img">
+                            @if (Auth::user()->gender === 'L' && Auth::user()->username !== 'mazfaa')
+                                <img src="{{ asset('assets') }}/images/man_avatar.png" alt="user-logged-in" class="img-circle profile_img">
+                            @elseif (Auth::user()->gender === 'P')
+                                <img src="{{ asset('assets') }}/images/akhwat_avatar.png" alt="user-logged-in" class="img-circle profile_img">
+                            @elseif (Auth::user()->username === 'mazfaa')
+                                <img src="{{ asset('assets') }}/images/azfa.jpg" alt="user-logged-in" class="img-circle profile_img">
+                            @endif
                         </div>
                         <div class="profile_info">
                             <span>Welcome,</span>
@@ -88,7 +93,13 @@
                             <li class="nav-item dropdown open" style="padding-left: 15px;">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true"
                                     id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="{{ asset('assets') }}/images/img.jpg" alt=""> {{ Auth::user()->name }}
+                                    @if (Auth::user()->gender === 'L' && Auth::user()->username !== 'mazfaa')
+                                        <img src="{{ asset('assets') }}/images/man_avatar.png" alt="user-logged-in"> {{ Auth::user()->name }}
+                                    @elseif (Auth::user()->gender === 'P')
+                                        <img src="{{ asset('assets') }}/images/akhwat_avatar.png" alt="user-logged-in"> {{ Auth::user()->name }}
+                                    @elseif (Auth::user()->username === 'mazfaa')
+                                        <img src="{{ asset('assets') }}/images/azfa.jpg" alt="user-logged-in"> {{ Auth::user()->name }}
+                                    @endif
                                 </a>
                                 <div class="dropdown-menu dropdown-usermenu pull-right"
                                     aria-labelledby="navbarDropdown">

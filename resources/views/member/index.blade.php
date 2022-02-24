@@ -47,7 +47,9 @@
             <td class="align-middle">{{ $no++; }}</td>
             <td class="align-middle">{{ $member->name }}</td>
             <td class="align-middle">{{ $member->address }}</td>
-            <td class="align-middle">{{ $member->gender }}</td>
+            <td class="align-middle">
+              <span class="badge bg-primary">{{ $member->gender }}</span>
+            </td>
             <td class="align-middle">{{ $member->phone }}</td>
             <td class="align-middle">{{ $member->created_at }}</td>
             <td class="align-middle">{{ $member->updated_at }}</td>

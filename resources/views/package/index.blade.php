@@ -28,6 +28,7 @@
       <thead>
         <tr>
           <th>#</th>
+          <th>Outlet Id</th>
           <th>Package Name</th>
           <th>Type</th>
           <th>Price</th>
@@ -44,6 +45,7 @@
         @include('package.edit')
         <tr>
           <td class="align-middle">{{ $no++; }}</td>
+          <td class="align-middle">{{ $package->outlet_id }}</td>
           <td class="align-middle">{{ $package->package_name }}</td>
           <td class="align-middle">
             <span class="badge bg-primary">{{ $package->type }}</span>

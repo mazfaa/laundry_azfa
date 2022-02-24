@@ -27,6 +27,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('package', PackageController::class);
     Route::resource('member', MemberController::class);
     Route::resource('inventory', InventoryController::class);
+    Route::get('employee', [EmployeeController::class, 'index'])->name('employee.index');
+    Route::put('employee/{user}', [EmployeeController::class, 'update'])->name('employee.update');
+    Route::delete('employee/{user}', [EmployeeController::class, 'destroy'])->name('employee.destroy');
     Route::get('report', [ReportController::class, 'index'])->name('report.index');
     Route::resource('transaction', TransactionController::class);
     Route::post('logout', LogoutController::class)->name('logout');
@@ -34,9 +37,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 Route::middleware(['auth', 'role:admin,cashier'])->group(function () {
     Route::get('/', [HomeController::class, 'index']);
-    Route::get('employee', [EmployeeController::class, 'index'])->name('employee.index');
-    Route::put('employee/{user}', [EmployeeController::class, 'update'])->name('employee.update');
-    Route::delete('employee/{user}', [EmployeeController::class, 'destroy'])->name('employee.destroy');
+    Route::resource('member', MemberController::class);
+    Route::resource('inventory', InventoryController::class);
     Route::get('report', [ReportController::class, 'index'])->name('report.index');
     Route::resource('transaction', TransactionController::class);
     Route::post('logout', LogoutController::class)->name('logout');

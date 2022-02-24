@@ -25,10 +25,11 @@ class EmployeeRequest extends FormRequest
     {
         return [
             'outlet_id' => ['required'],
-            'role' => ['required'],
+            'name' => ['required', 'min:3', 'string'],
             'username' => ['required', 'alpha_num', 'min:5', 'max:25'],
             'email' => ['required', 'email'],
-            'name' => ['required', 'min:3', 'string'],
+            'gender' => ['required', 'string'],
+            'role' => ['required'],
         ];
     }
 }

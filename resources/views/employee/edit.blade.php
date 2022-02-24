@@ -36,12 +36,22 @@
                   <option value="cashier">Cashier</option>
                   <option value="owner">Owner</option>
                 </select>
-                @error('username')
+                @error('role')
                   <div class="text-danger mt-2">
                     {{ $message }}
                   </div>
                 @enderror
                 </div>
+                <div class="mb-2">
+                  <label for="gender" class="form-label">Gender</label>
+                  <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="gender">
+                    @if (isset($employee->gender))
+                      <option value="{{ $employee->gender }}" selected>{{ $employee->gender }}</option>
+                    @endif
+                    <option value="L">L</option>
+                    <option value="P">P</option>
+                  </select>
+              </div>
                 <div class="mb-2">
                     <label for="username" class="form-label">Username</label>
                     <input type="text" name="username" value="{{ old('username', $employee->username) }}" class="form-control" id="username" placeholder="Username">

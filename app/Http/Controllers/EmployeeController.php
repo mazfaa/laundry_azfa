@@ -20,10 +20,11 @@ class EmployeeController extends Controller
     {
         $request = $request->validate([
             'outlet_id' => ['required'],
-            'role' => ['required'],
+            'name' => ['required', 'min:3', 'string'],
             'username' => ['required', 'alpha_num', 'min:5', 'max:25'],
             'email' => ['required', 'email'],
-            'name' => ['required', 'min:3', 'string'],
+            'gender' => ['required', 'string'],
+            'role' => ['required'],
         ]);
         User::where('id', $user)->update($request);
         return redirect('employee')->with('status', 'The Employee Successfully Edited!');
