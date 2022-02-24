@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Inventory;
-use Illuminate\Http\Request;
 use App\Http\Requests\InventoryRequest;
 
 class InventoryController extends Controller
@@ -33,7 +32,7 @@ class InventoryController extends Controller
     public function store(InventoryRequest $request)
     {
         Inventory::create($request->all());
-        return redirect('invetory')->with('status', 'Create Invetory Successfully!');
+        return redirect('inventory')->with('status', 'Create Invetory Successfully!');
     }
 
     /**
@@ -42,10 +41,6 @@ class InventoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -53,10 +48,6 @@ class InventoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

@@ -8,7 +8,7 @@
       </div>
       <div class="modal-body">
         <div class="card">
-          <div class="card-header">Edit New Member</div>
+          <div class="card-header">Edit Member</div>
           <div class="card-body">
             <form action="{{ route('member.update', $member->id) }}" method="post">
               @csrf
