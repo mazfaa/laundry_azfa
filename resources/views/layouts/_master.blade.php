@@ -34,7 +34,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="/" class="site_title"><span><i class="fa fa-paw"></i> Mentor'sLaundry</span></a>
+                        <a href="/" class="site_title"><span><i class="fa fa-paw"></i> Mentor's Laundry</span></a>
                     </div>
 
                     <div class="clearfix"></div>

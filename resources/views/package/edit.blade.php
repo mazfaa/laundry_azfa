@@ -15,7 +15,7 @@
               @method('put')
               <div class="mb-3">
               <label for="type" class="form-label">Package Type</label>
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="type">
+                <select class="form-select form-select mb-3" aria-label=".form-select example" name="type">
                   @if (isset($package->type))
                     <option value="{{ $package->type }}" selected>{{ $package->type }}</option>
                   @endif
@@ -28,7 +28,7 @@
               </div>
               <div class="mb-3">
               <label for="type" class="form-label">Outlet</label>
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="outlet_id">
+                <select class="form-select form-select mb-3" aria-label=".form-select example" name="outlet_id">
                   <option selected disabled>-- Select Package Type --</option>
                   @foreach ($outlets as $outlet)
                       @if ($outlet->id === $package->outlet_id)

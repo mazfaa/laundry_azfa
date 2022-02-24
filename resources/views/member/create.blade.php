@@ -32,7 +32,7 @@
               </div>
               <div class="mb-3">
                   <label for="gender" class="form-label">Gender</label>
-                  <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="gender">
+                  <select class="form-select form-select mb-3" aria-label=".form-select example" name="gender">
                     <option selected>-- Select Gender --</option>
                     <option value="L">L</option>
                     <option value="P">P</option>

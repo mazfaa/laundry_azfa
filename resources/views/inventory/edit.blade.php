@@ -4,8 +4,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editInventoryModalLabel{{ $inventory->id }}"><i
-                        class="bi bi-person-check-fill"></i> Edit Inventory</h5>
+                <h5 class="modal-title" id="editInventoryModalLabel{{ $inventory->id }}"><i class="bi bi-box-seam"></i> Edit Inventory</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -49,7 +48,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="kondisi" class="form-label">Kondisi</label>
-                                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                                <select class="form-select form-select mb-3" aria-label=".form-select example"
                                     name="kondisi">
                                     @if (isset($inventory->kondisi))
                                         <option value="{{ $inventory->kondisi }}" selected>

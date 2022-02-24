@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="inventoryModalLabel"><i class="bi bi-person-plus-fill"></i> Create
+                <h5 class="modal-title" id="inventoryModalLabel"><i class="bi bi-box-seam"></i> Create
                     Inventory </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -45,7 +45,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="kondisi" class="form-label">kondisi</label>
-                                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                                <select class="form-select form-select mb-3" aria-label=".form-select example"
                                     name="kondisi">
                                     <option selected>-- Select Kondisi --</option>
                                     <option value="layak_pakai">layak_pakai</option>

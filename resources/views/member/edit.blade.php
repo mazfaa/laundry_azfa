@@ -33,7 +33,7 @@
               </div>
               <div class="mb-3">
                   <label for="gender" class="form-label">Gender</label>
-                  <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="gender">
+                  <select class="form-select form-select mb-3" aria-label=".form-select example" name="gender">
                     @if (isset($member->gender))
                       <option value="{{ $member->gender }}" selected>{{ $member->gender }}</option>
                     @endif

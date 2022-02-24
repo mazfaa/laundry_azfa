@@ -13,9 +13,9 @@
             <form action="{{ route('employee.update', $employee->id) }}" method="post">
               @csrf
               @method('put')
-              <div class="mb-2">
+              <div class="mb-3">
               <label for="type" class="form-label">Outlet</label>
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="outlet_id">
+                <select class="form-select form-select mb-3" aria-label=".form-select example" name="outlet_id">
                   <option selected disabled>-- Select Outlet --</option>
                   @foreach ($outlets as $outlet)
                       @if ($outlet->id === $employee->outlet_id)
@@ -26,9 +26,9 @@
                   @endforeach
                 </select>
               </div>
-              <div class="mb-2">
+              <div class="mb-3">
                 <label for="type" class="form-label">Role</label>
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="role" value="{{ old('role') }}">
+                <select class="form-select form-select mb-3" aria-label=".form-select example" name="role" value="{{ old('role') }}">
                   @if (isset($employee->role))
                       <option value="{{ $employee->role }}" selected>{{ $employee->role }}</option>
                     @endif
@@ -42,9 +42,9 @@
                   </div>
                 @enderror
                 </div>
-                <div class="mb-2">
+                <div class="mb-3">
                   <label for="gender" class="form-label">Gender</label>
-                  <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="gender">
+                  <select class="form-select form-select mb-3" aria-label=".form-select example" name="gender">
                     @if (isset($employee->gender))
                       <option value="{{ $employee->gender }}" selected>{{ $employee->gender }}</option>
                     @endif
@@ -52,7 +52,7 @@
                     <option value="P">P</option>
                   </select>
               </div>
-                <div class="mb-2">
+                <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
                     <input type="text" name="username" value="{{ old('username', $employee->username) }}" class="form-control" id="username" placeholder="Username">
                     @error('username')
@@ -61,17 +61,16 @@
                         </div>
                     @enderror
                   </div>
-                <div class="mb-2">
+                <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
                     <input type="text" name="email" value="{{ old('email', $employee->email) }}" class="form-control" id="email" placeholder="Email Address">
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                     @error('email')
                         <div class="text-danger mt-2">
                           {{ $message }}
                         </div>
                     @enderror
                   </div>
-                <div class="mb-2">
+                <div class="mb-3">
                   <label for="name" class="form-label">Name</label>
                   <input type="text" name="name" value="{{ old('name', $employee->name) }}" class="form-control" id="name" placeholder="Name">
                   @error('name')

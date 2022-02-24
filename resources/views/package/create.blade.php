@@ -14,7 +14,7 @@
                   @csrf
                   <div class="mb-3">
                     <label for="type" class="form-label">Package Type</label>
-                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="type">
+                    <select class="form-select form-select mb-3" aria-label=".form-select example" name="type">
                       <option selected disabled>-- Select Package Type --</option>
                       <option value="Kiloan">Kiloan</option>
                       <option value="Selimut">Selimut</option>
@@ -25,7 +25,7 @@
                   </div>
                   <div class="mb-3">
                     <label for="type" class="form-label">Outlet</label>
-                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="outlet_id">
+                    <select class="form-select form-select mb-3" aria-label=".form-select example" name="outlet_id">
                       <option selected disabled>-- Select Outlet --</option>
                       @foreach ($outlets as $outlet)
                         <option value="{{ $outlet->id }}">{{ $outlet->name }}</option>
