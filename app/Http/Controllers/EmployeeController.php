@@ -25,7 +25,7 @@ class EmployeeController extends Controller
             'gender' => ['required', 'string'],
             'role' => ['required'],
         ]);
-        User::where('id', $user)->update($request);
+        User::whereId($user)->update($request);
         return redirect('employee')->with('status', 'The Employee Successfully Edited!');
     }
 

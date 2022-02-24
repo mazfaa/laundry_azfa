@@ -58,7 +58,7 @@ class MemberController extends Controller
      */
     public function update(MemberRequest $request, $id)
     {
-        Member::where('id', $id)->update([
+        Member::whereId($id)->update([
             'name' => $request->name,
             'address' => $request->address,
             'gender' => $request->gender,

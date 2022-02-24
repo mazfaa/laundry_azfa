@@ -69,7 +69,7 @@ class PackageController extends Controller
     public function update(PackageRequest $request, $id)
     {
         $request->price = (int)str_replace('.', '', str_replace('Rp. ', '', $request->price));
-        Package::where('id', $id)->update([
+        Package::whereId($id)->update([
             'type' => $request->type,
             'outlet_id' => $request->outlet_id,
             'package_name' => $request->package_name,

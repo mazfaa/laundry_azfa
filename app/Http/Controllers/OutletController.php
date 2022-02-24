@@ -58,7 +58,7 @@ class OutletController extends Controller
      */
     public function update(OutletRequest $request, $id)
     {
-        Outlet::where('id', $id)->update([
+        Outlet::whereId($id)->update([
             'name' => $request->name,
             'address' => $request->address,
             'phone' => $request->phone,
