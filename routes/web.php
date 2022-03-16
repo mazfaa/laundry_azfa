@@ -12,6 +12,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\EmployeeSalaryController;
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegistrationController::class, 'create'])->name('register');
@@ -32,6 +33,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::delete('employee/{user}', [EmployeeController::class, 'destroy'])->name('employee.destroy');
     Route::get('report', [ReportController::class, 'index'])->name('report.index');
     Route::resource('transaction', TransactionController::class);
+    Route::get('employee_salary', [EmployeeSalaryController::class, 'index'])->name('employee_salary.index');
     Route::post('logout', LogoutController::class)->name('logout');
 });
 

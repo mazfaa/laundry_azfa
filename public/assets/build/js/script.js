@@ -1,4 +1,4 @@
-/* Rupiah Currency Format */ 
+/* Rupiah Currency Format */
 // let price = document.getElementById('price');
 // price.addEventListener('keyup', function (number) {
 //   return new Intl.NumberFormat("id-ID", {
@@ -8,11 +8,11 @@
 // });
 
 let rupiah = document.getElementById('rupiah');
-rupiah.addEventListener('keyup', function(e){
-  // tambahkan 'Rp.' pada saat form di ketik
-  // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
-  rupiah.value = formatRupiah(this.value, 'Rp. ');
-});
+// rupiah.addEventListener('keyup', function(e){
+//   // tambahkan 'Rp.' pada saat form di ketik
+//   // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
+//   rupiah.value = formatRupiah(this.value, 'Rp. ');
+// });
 
 /* Fungsi formatRupiah */
 function formatRupiah(angka, prefix){
@@ -31,3 +31,104 @@ function formatRupiah(angka, prefix){
   rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
   return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
 }
+
+function insert (record) {
+    let recordList = {};
+    for (const index of record) {
+        recordList[index[0]] = index[0] === `id` || index[0] === 'jumlah_anak' ? parseInt(index[1]) : index[1];
+    }
+    recordList['gaji_awal'] = 2000000;
+    return recordList;
+    // recordList['tunjangan'] = calculateTunjangan(recordList);
+    // recordList['total_gaji'] = recordList['gaji_awal'] + recordList['tunjangan'];
+    /* const record = $('#salary-form').serializeArray();
+    let newRecord = {};
+    record.forEach((item, index) => {
+        let recordName = item.name;
+        let value = (recordName === 'id' ? Number(item['value']) : item['value']);
+        newRecord[recordName] = value;
+    });
+    console.log(newRecord);
+    return newRecord; */
+}
+
+$(() => {
+  let employees = [];
+
+  const create = record => {
+    let recordList = {};
+    for (const index of record) {
+      recordList[index[0]] = index[0] === `id` || index[0] === 'jumlah_anak' ? parseInt(index[1]) : index[1];
+    }
+    recordList['gaji_awal'] = 2000000;
+    recordList['tunjangan'] = calculateTunjangan(recordList);
+    recordList['total_gaji'] = recordList['gaji_awal'] + recordList['tunjangan'];
+    employees.push(recordList);
+    console.log(recordList);
+    localStorage.setItem('employees', JSON.stringify(employees));
+    return recordList;
+  }
+
+  const calculateAge = birthday => {
+      birthday = new Date(birthday);
+      let ageDifMS = Date.now();
+      let ageDate = new Date(ageDifMS);
+      return Math.abs(ageDate.getUTCFullYear() - 1970);
+  }
+
+  const calculateTunjangan = record => {
+    const kenaikanGajiPertahun = 150000;
+    if (record.status === 'couple') {
+      let tunjanganMenikah = 250000;
+      let tunjanganPerAnak = 150000;
+      let totalTunjangan = 0;
+
+      totalTunjangan += kenaikanGajiPertahun * calculateAge(record.mulai_bekerja);
+      totalTunjangan += tunjanganMenikah;
+      totalTunjangan += (record.jumlah_anak > 2) ? tunjanganPerAnak * 2 : record.jumlah_anak;
+      return totalTunjangan;
+    } else {
+        let totalTunjangan = 0;
+        totalTunjangan += kenaikanGajiPertahun * calculateAge(record.mulai_bekerja);
+        return totalTunjangan;
+    }
+  }
+
+  const renderTable = arr => {
+    let row = ``;
+    if (arr.length === null) {
+      return row = `
+        <tr>
+          <td colspan="3">No data available in table</td>
+        </tr>
+      `;
+    }
+
+    arr.forEach((item) => {
+      row += `<tr>
+                <td>${item['id']}</td>
+                <td>${item['name']}</td>
+                <td>${item['gender']}</td>
+                <td>${item['status']}</td>
+                <td>${item['jumlah_anak']}</td>
+                <td>${item['mulai_bekerja']}</td>
+                <td>${item['gaji_awal']}</td>
+                <td>${item['Tunjangan']}</td>
+                <td>${item['Total Gaji']}</td>
+            </tr>
+		`;
+    });
+
+    return row;
+}
+
+  document.getElementById('start-work').valueAsDate = new Date();
+
+  $('#salary-form').on('submit', (e) => {
+    e.preventDefault();
+    const record = new FormData(document.getElementById('salary-form'));
+    employees.push(create(record));
+    $('#karyawan-table tbody').html(renderTable(employees));
+    console.log(employees);
+  });
+});

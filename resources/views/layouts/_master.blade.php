@@ -178,6 +178,7 @@
     $('#member-table').DataTable();
     $('#employee-table').DataTable();
     $('#inventory-table').DataTable();
+    $('#karyawan-table').DataTable();
   });
 </script>
 </body>
