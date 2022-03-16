@@ -9,7 +9,7 @@
             </div>
             <div class="modal-body">
                 <div class="card">
-                    <div class="card-header">Edit Inventory</div>
+                    <div class="card-header"><i class="bi bi-pencil-square"></i> Edit Inventory</div>
                     <div class="card-body">
                         <form action="{{ route('inventory.update', $inventory->id) }}" method="post">
                             @csrf

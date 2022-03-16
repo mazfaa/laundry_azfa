@@ -16,10 +16,10 @@
       </div>
     @endif
   </x-slot>
-  <x-slot name="header_page"><i class="bi bi-box"></i> Tabel Package</x-slot>
+  <x-slot name="header_page"><i class="bi bi-box"></i> Tabel Paket</x-slot>
   <x-slot name="header_btn">
     <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#packageModal">
-      <i class="bi bi-plus"></i> Add Package</a>
+      <i class="bi bi-plus"></i> Paket</a>
     </button>
     @include('package.create')
   </x-slot>
@@ -29,11 +29,9 @@
         <tr>
           <th>#</th>
           <th>Outlet Id</th>
-          <th>Package Name</th>
-          <th>Type</th>
-          <th>Price</th>
-          <th>Created_at</th>
-          <th>Updated_at</th>
+          <th>Nama Paket</th>
+          <th>Jenis</th>
+          <th>Harga</th>
           <th>Settings</th>
         </tr>
       </thead>
@@ -51,8 +49,6 @@
             <span class="badge bg-primary">{{ $package->type }}</span>
           </td>
           <td class="align-middle">@currency($package->price)</td>
-          <td class="align-middle">{{ $package->created_at }}</td>
-          <td class="align-middle">{{ $package->updated_at }}</td>
           <td class="align-middle">
             <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#editPackageModal{{ $package->id }}">
               <i class="bi bi-pencil-square"></i> Edit

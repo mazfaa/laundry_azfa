@@ -19,7 +19,7 @@
     <x-slot name="header_page"><i class="bi bi-people-fill"></i>Tabel Member</x-slot>
     <x-slot name="header_btn">
       <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#memberModal">
-      <i class="bi bi-plus"></i> Add Member</a>
+      <i class="bi bi-plus"></i> Member</a>
     </button>
     @include('member.create')
     </x-slot>
@@ -28,12 +28,10 @@
         <thead>
           <tr>
             <th>#</th>
-            <th>Member Name</th>
-            <th>Address</th>
+            <th>Nama Pelanggan</th>
+            <th>Alamat</th>
             <th>Gender</th>
-            <th>Phone</th>
-            <th>Created_at</th>
-            <th>Updated_at</th>
+            <th>No. Telp</th>
             <th>Settings</th>
           </tr>
         </thead>
@@ -51,8 +49,6 @@
               <span class="badge bg-primary">{{ $member->gender }}</span>
             </td>
             <td class="align-middle">{{ $member->phone }}</td>
-            <td class="align-middle">{{ $member->created_at }}</td>
-            <td class="align-middle">{{ $member->updated_at }}</td>
             <td class="align-middle">
               <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#editMemberModal{{ $member->id }}">
               <i class="bi bi-pencil-square"></i> Edit

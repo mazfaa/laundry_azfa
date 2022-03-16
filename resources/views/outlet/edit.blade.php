@@ -8,13 +8,13 @@
       </div>
       <div class="modal-body">
         <div class="card">
-          <div class="card-header">Update Outlet</div>
+          <div class="card-header"><i class="bi bi-pencil-square"></i> Update Outlet</div>
           <div class="card-body">
             <form action="{{ route('outlet.update', $outlet->id) }}" method="post">
               @csrf
               @method('put')
               <div class="mb-3">
-                <label for="name" class="form-label">Outlet Name</label>
+                <label for="name" class="form-label">Nama Outlet</label>
                 <input type="text" name="name" value="{{ old('name', $outlet->name) }}" class="form-control @error('name') is-invalid @enderror" id="name">
                 @error('name')
                   <div class="invalid-feedback">
@@ -23,7 +23,7 @@
                 @enderror
               </div>
               <div class="mb-3">
-                <label for="address" class="form-label">Address</label>
+                <label for="address" class="form-label">Alamat</label>
                 <input type="text" name="address" value="{{ old('address', $outlet->address) }}" class="form-control @error('address') is-invalid @enderror" id="address">
                 @error('address')
                   <span class="invalid-feedback">
@@ -32,7 +32,7 @@
                 @enderror
               </div>
               <div class="mb-3">
-                <label for="phone" class="form-label">Phone Number</label>
+                <label for="phone" class="form-label">No. Telp</label>
                 <input type="text" name="phone" value="{{ old('phone', $outlet->phone) }}" class="form-control @error('phone') is-invalid @enderror" id="phone">
                 @error('phone')
                   <span class="invalid-feedback">

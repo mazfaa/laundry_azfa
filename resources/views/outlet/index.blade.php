@@ -19,20 +19,18 @@
   <x-slot name="header_page"><i class="bi bi-shop"></i> Tabel Outlet</x-slot>
   <x-slot name="header_btn">
     <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#outletModal">
-      <i class="bi bi-plus"></i> Add Outlet
+      <i class="bi bi-plus"></i> Outlet
     </button>
     @include('outlet.create')
   </x-slot>
   <x-slot name="content_page">
-    <table class="table table-bordered text-center align-items-center" id="outlet-table">
+    <table class="table table-bordered text-center align-items-center" id="tb-outlet">
       <thead>
         <tr>
           <th>#</th>
-          <th>Outlet Name</th>
-          <th>Address</th>
-          <th>Phone</th>
-          <th>Created_at</th>
-          <th>Updated_at</th>
+          <th>Nama Outlet</th>
+          <th>Alamat</th>
+          <th>No. Telp</th>
           <th>Settings</th>
         </tr>
       </thead>
@@ -47,8 +45,6 @@
           <td class="align-middle">{{ $outlet->name }}</td>
           <td class="align-middle">{{ $outlet->address }}</td>
           <td class="align-middle">{{ $outlet->phone }}</td>
-          <td class="align-middle">{{ $outlet->created_at }}</td>
-          <td class="align-middle">{{ $outlet->updated_at }}</td>
           <td class="align-middle">
             <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#editOutletModal{{ $outlet->id }}">
               <i class="bi bi-pencil-square"></i> Edit

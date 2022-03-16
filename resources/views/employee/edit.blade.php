@@ -27,7 +27,7 @@
                 </select>
               </div>
               <div class="mb-3">
-                <label for="type" class="form-label">Role</label>
+                <label for="type" class="form-label">Hak Akses</label>
                 <select class="form-select form-select mb-3" aria-label=".form-select example" name="role" value="{{ old('role') }}">
                   @if (isset($employee->role))
                       <option value="{{ $employee->role }}" selected>{{ $employee->role }}</option>
@@ -71,7 +71,7 @@
                   @enderror
                 </div>
                 <div class="mb-3">
-                  <label for="name" class="form-label">Name</label>
+                  <label for="name" class="form-label">Nama</label>
                   <input type="text" name="name" value="{{ old('name', $employee->name) }}" class="form-control" id="name" placeholder="Name">
                   @error('name')
                     <div class="text-danger mt-2">

@@ -8,12 +8,12 @@
       </div>
       <div class="modal-body">
         <div class="card">
-              <div class="card-header">Create New Package</div>
+              <div class="card-header"><i class="bi bi-plus"></i> Package</div>
               <div class="card-body">
                 <form action="{{ route('package.store') }}" method="post">
                   @csrf
                   <div class="mb-3">
-                    <label for="type" class="form-label">Package Type</label>
+                    <label for="type" class="form-label">Jenis Paket</label>
                     <select class="form-select form-select mb-3" aria-label=".form-select example" name="type">
                       <option selected disabled>-- Select Package Type --</option>
                       <option value="Kiloan">Kiloan</option>
@@ -33,7 +33,7 @@
                     </select>
                   </div>
                   <div class="mb-3">
-                    <label for="package_name" class="form-label">Package Name</label>
+                    <label for="package_name" class="form-label">Nama Paket</label>
                     <input type="text" name="package_name" value="{{ old('package_name') }}" class="form-control @error('package_name') is-invalid @enderror" id="package_name">
                     @error('package_name')
                       <span class="invalid-feedback">
@@ -42,7 +42,7 @@
                     @enderror
                   </div>
                   <div class="mb-3">
-                    <label for="price" class="form-label">Price</label>
+                    <label for="price" class="form-label">Harga</label>
                     <input type="text" name="price" value="{{ old('price') }}" class="form-control @error('price') is-invalid @enderror" id="rupiah">
                     @error('price')
                       <span class="invalid-feedback">

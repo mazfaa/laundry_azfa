@@ -19,7 +19,7 @@
   <x-slot name="header_page"><i class="bi bi-box-seam"></i> Tabel Inventaris</x-slot>
   <x-slot name="header_btn">
     <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#inventoryModal">
-      <i class="bi bi-plus"></i> Add Inventory</a>
+      <i class="bi bi-plus"></i> Inventory</a>
     </button>
     @include('inventory.create')
   </x-slot>
@@ -33,8 +33,6 @@
           <th>Qty</th>
           <th>Kondisi</th>
           <th>Tgl Pengadaan</th>
-          <th>Created_at</th>
-          <th>Updated_at</th>
           <th>Settings</th>
         </tr>
       </thead>
@@ -53,8 +51,6 @@
               <span class="badge bg-primary">{{ $inventory->kondisi }}</span>
             </td>
             <td class="align-middle">{{ $inventory->tanggal_pengadaan }}</td>
-            <td class="align-middle">{{ $inventory->created_at }}</td>
-            <td class="align-middle">{{ $inventory->updated_at }}</td>
             <td class="align-middle">
               <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal"
                   data-bs-target="#editInventoryModal{{ $inventory->id }}">

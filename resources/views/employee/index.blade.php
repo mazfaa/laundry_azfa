@@ -23,12 +23,10 @@
         <tr>
           <th>#</th>
           <th>Outlet id</th>
-          <th>Name</th>
+          <th>Nama Karyawan</th>
           <th>Email</th>
           <th>Gender</th>
-          <th>Role</th>
-          <th>Created_at</th>
-          <th>Updated_at</th>
+          <th>Hak Akses</th>
           <th>Settings</th>
         </tr>
       </thead>
@@ -49,8 +47,6 @@
           <td class="align-middle">
             <span class="badge bg-primary">{{ $employee->role }}</span>
           </td>
-          <td class="align-middle">{{ $employee->created_at }}</td>
-          <td class="align-middle">{{ $employee->updated_at }}</td>
           <td class="align-middle">
             <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#editEmployeeModal{{ $employee->id }}">
               <i class="bi bi-pencil-square"></i>

@@ -9,7 +9,7 @@
             </div>
             <div class="modal-body">
                 <div class="card">
-                    <div class="card-header">Create New Inventory</div>
+                    <div class="card-header"><i class="bi bi-plus"></i> Inventory</div>
                     <div class="card-body">
                         <form action="{{ route('inventory.store') }}" method="post">
                             @csrf
