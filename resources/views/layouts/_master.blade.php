@@ -181,6 +181,7 @@
     $('#employee-table').DataTable();
     $('#inventory-table').DataTable();
     $('#karyawan-table').DataTable();
+    $('#pickup-table').DataTable();
   });
 </script>
 </body>

@@ -7,6 +7,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OutletController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\PickupController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\InventoryController;
@@ -34,6 +35,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('report', [ReportController::class, 'index'])->name('report.index');
     Route::resource('transaction', TransactionController::class);
     Route::get('employee_salary', [EmployeeSalaryController::class, 'index'])->name('employee_salary.index');
+    Route::resource('pickup', PickupController::class);
     Route::post('logout', LogoutController::class)->name('logout');
 });
 
@@ -51,3 +53,5 @@ Route::middleware(['auth', 'role:admin,cashier,owner'])->group(function () {
     Route::get('report', [ReportController::class, 'index'])->name('report.index');
     Route::post('logout', LogoutController::class)->name('logout');
 });
+
+Route::get('export/package', [PackageController::class, 'exportData'])->name('export-package');

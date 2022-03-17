@@ -1,58 +1,35 @@
 /* Rupiah Currency Format */
-// let price = document.getElementById('price');
-// price.addEventListener('keyup', function (number) {
-//   return new Intl.NumberFormat("id-ID", {
-//     style: "currency",
-//     currency: "IDR"
-//   }).format(number);
-// });
-
-let rupiah = document.getElementById('rupiah');
-// rupiah.addEventListener('keyup', function(e){
-//   // tambahkan 'Rp.' pada saat form di ketik
-//   // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
-//   rupiah.value = formatRupiah(this.value, 'Rp. ');
-// });
-
-/* Fungsi formatRupiah */
-function formatRupiah(angka, prefix){
-  let number_string = angka.replace(/[^,\d]/g, '').toString(),
-  split   		= number_string.split(','),
-  sisa     		= split[0].length % 3,
-  rupiah     		= split[0].substr(0, sisa),
-  ribuan     		= split[0].substr(sisa).match(/\d{3}/gi);
-
-  // tambahkan titik jika yang di input sudah menjadi angka ribuan
-  if(ribuan){
-    separator = sisa ? '.' : '';
-    rupiah += separator + ribuan.join('.');
-  }
-
-  rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-  return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
-}
-
-function insert (record) {
-    let recordList = {};
-    for (const index of record) {
-        recordList[index[0]] = index[0] === `id` || index[0] === 'jumlah_anak' ? parseInt(index[1]) : index[1];
-    }
-    recordList['gaji_awal'] = 2000000;
-    return recordList;
-    // recordList['tunjangan'] = calculateTunjangan(recordList);
-    // recordList['total_gaji'] = recordList['gaji_awal'] + recordList['tunjangan'];
-    /* const record = $('#salary-form').serializeArray();
-    let newRecord = {};
-    record.forEach((item, index) => {
-        let recordName = item.name;
-        let value = (recordName === 'id' ? Number(item['value']) : item['value']);
-        newRecord[recordName] = value;
-    });
-    console.log(newRecord);
-    return newRecord; */
-}
+/* let price = document.getElementById('price');
+price.addEventListener('keyup', function (number) {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR"
+  }).format(number);
+}); */
 
 $(() => {
+  let rupiah = document.getElementById('rupiah');
+  rupiah.addEventListener('keyup', function(e){
+    rupiah.value = formatRupiah(this.value, 'Rp. ');
+  });
+
+  function formatRupiah(angka, prefix){
+    let number_string = angka.replace(/[^,\d]/g, '').toString(),
+    split   		= number_string.split(','),
+    sisa     		= split[0].length % 3,
+    rupiah     		= split[0].substr(0, sisa),
+    ribuan     		= split[0].substr(sisa).match(/\d{3}/gi);
+
+    // tambahkan titik jika yang di input sudah menjadi angka ribuan
+    if(ribuan){
+      separator = sisa ? '.' : '';
+      rupiah += separator + ribuan.join('.');
+    }
+
+    rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+    return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+  }
+
   let employees = [];
 
   const create = record => {

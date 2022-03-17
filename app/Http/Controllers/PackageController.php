@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Outlet;
 use App\Models\Package;
+use App\Exports\PackageExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\PackageRequest;
 
 class PackageController extends Controller
@@ -88,5 +90,10 @@ class PackageController extends Controller
     {
         Package::whereId($id)->delete();
         return redirect('package')->with('deleted', 'Package Successfully Deleted!');
+    }
+
+    public function exportData () {
+        $date = date('Y-m-d');
+        return Excel::download(new PackageExport, $date. '_package.xlsx');
     }
 }
