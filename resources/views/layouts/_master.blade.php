@@ -21,6 +21,8 @@
 <link rel="stylesheet" href="//cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
 <!-- Bootstrap Icon -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
 <body class="nav-md">
 <div class="container body">
@@ -155,8 +157,6 @@
   </div>
 </div>
 <!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<!-- jQuery -->
 {{-- <script src="{{ asset('assets') }}/vendors/jquery/dist/jquery.min.js"></script> --}}
 <!-- Bootstrap -->
 <script src="{{ asset('assets') }}/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -171,8 +171,6 @@
 <script src="{{ asset('assets') }}/build/js/custom.min.js"></script>
 <!-- Datatables -->
 <script src="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-<!-- Script js -->
-<script src="{{ asset('assets/build/js/script.js') }}"></script>
 <script>
   $(document).ready(function() {
     $('#tb-outlet').DataTable();
@@ -184,5 +182,8 @@
     $('#pickup-table').DataTable();
   });
 </script>
+<!-- Script js -->
+<script src="{{ asset('assets/build/js/script.js') }}"></script>
+<script src="{{ asset('assets/build/js/employee_salary.js') }}"></script>
 </body>
 </html>

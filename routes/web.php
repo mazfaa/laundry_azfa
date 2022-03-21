@@ -55,3 +55,4 @@ Route::middleware(['auth', 'role:admin,cashier,owner'])->group(function () {
 });
 
 Route::get('export/package', [PackageController::class, 'exportData'])->name('export-package');
+Route::get('export/salary', [EmployeeSalaryController::class, 'exportData'])->name('export-salary');

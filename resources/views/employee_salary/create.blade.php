@@ -40,15 +40,15 @@
                 </div>
                 <div class="mb-3">
                     <label for="status" class="form-label">Status</label>
-                    <select class="form-select form-select mb-3" aria-label=".form-select example" name="status">
+                    <select class="form-select form-select mb-3" aria-label=".form-select example" name="status" id="employeeStatus">
                       <option selected>-- Select Status --</option>
-                      <option value="single">Single</option>
-                      <option value="couple">Couple</option>
+                      <option value="Single">Single</option>
+                      <option value="Couple">Couple</option>
                     </select>
                 </div>
                 <div class="mb-3">
                     <label for="jumlah_anak" class="form-label">Jumlah Anak</label>
-                    <input type="number" name="jumlah_anak" value="{{ old('jumlah_anak') }}" class="form-control @error('jumlah_anak') is-invalid @enderror" id="jumlah_anak">
+                    <input type="number" name="jumlah_anak" value="{{ old('jumlah_anak', 0) }}" class="form-control @error('jumlah_anak') is-invalid @enderror" id="children" readonly>
                     @error('jumlah_anak')
                       <div class="invalid-feedback">
                         {{ $message }}

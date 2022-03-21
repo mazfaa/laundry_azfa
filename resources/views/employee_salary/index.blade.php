@@ -18,13 +18,17 @@
     </x-slot>
     <x-slot name="header_page"><i class="bi bi-people-fill"></i> Gaji Karyawan</x-slot>
     <x-slot name="header_btn">
+      <a href="{{ route('export-salary') }}" class="btn btn-sm btn-success">
+        <i class="bi bi-file-earmark-excel"></i> Export</a>
+      </a>
+
       <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#karyawanModal">
-      <i class="bi bi-plus"></i> Karyawan</a>
-    </button>
+        <i class="bi bi-plus"></i> Karyawan</a>
+      </button>
     @include('employee_salary.create')
     </x-slot>
     <x-slot name="content_page">
-      <table class="table table-bordered text-center" id="karyawan-table">
+      <table class="table table-striped table-hover text-center" id="karyawan-table">
         <thead>
           <tr>
             <th>#</th>
@@ -43,29 +47,6 @@
           @php
             $no = 1;
           @endphp
-          {{-- @foreach ($members as $member)
-          @include('member.edit')
-          <tr>
-            <td class="align-middle">{{ $no++; }}</td>
-            <td class="align-middle">{{ $member->name }}</td>
-            <td class="align-middle">{{ $member->address }}</td>
-            <td class="align-middle">
-              <span class="badge bg-primary">{{ $member->gender }}</span>
-            </td>
-            <td class="align-middle">{{ $member->phone }}</td>
-            <td class="align-middle">{{ $member->created_at }}</td>
-            <td class="align-middle">{{ $member->updated_at }}</td>
-            <td class="align-middle">
-              <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#editMemberModal{{ $member->id }}">
-              <i class="bi bi-pencil-square"></i> Edit
-              </button>
-              <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteMemberModal{{ $member->id }}">
-              <i class="bi bi-trash"></i> Delete
-            </button>
-            </td>
-          </tr>
-          @include('member.delete')
-          @endforeach --}}
         </tbody>
       </table>
     </x-slot>
