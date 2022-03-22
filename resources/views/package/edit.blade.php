@@ -14,7 +14,7 @@
               @csrf
               @method('put')
               <div class="mb-3">
-              <label for="type" class="form-label">Package Type</label>
+              <label for="type" class="form-label">Jenis Paket</label>
                 <select class="form-select form-select mb-3" aria-label=".form-select example" name="type">
                   @if (isset($package->type))
                     <option value="{{ $package->type }}" selected>{{ $package->type }}</option>
@@ -29,7 +29,7 @@
               <div class="mb-3">
               <label for="type" class="form-label">Outlet</label>
                 <select class="form-select form-select mb-3" aria-label=".form-select example" name="outlet_id">
-                  <option selected disabled>-- Select Package Type --</option>
+                  <option selected disabled>-- Pilih Outlet --</option>
                   @foreach ($outlets as $outlet)
                       @if ($outlet->id === $package->outlet_id)
                         <option value="{{ $outlet->id }}" selected>{{ $outlet->name }}</option>
@@ -40,7 +40,7 @@
                 </select>
               </div>
               <div class="mb-3">
-                <label for="package_name" class="form-label">Package Name</label>
+                <label for="package_name" class="form-label">Nama Paket</label>
                 <input type="text" name="package_name" value="{{ old('package_name', $package->package_name) }}" class="form-control @error('package_name') is-invalid @enderror" id="package_name">
                 @error('package_name')
                   <span class="invalid-feedback">
@@ -49,7 +49,7 @@
                 @enderror
               </div>
               <div class="mb-3">
-                <label for="price" class="form-label">Price</label>
+                <label for="price" class="form-label">Harga</label>
                 <input type="text" name="price" value="{{ old('price') }} @currency($package->price)" class="form-control @error('price') is-invalid @enderror" id="rupiah">
                 @error('price')
                   <span class="invalid-feedback">

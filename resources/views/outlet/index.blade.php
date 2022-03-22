@@ -24,7 +24,7 @@
     @include('outlet.create')
   </x-slot>
   <x-slot name="content_page">
-    <table class="table table-bordered text-center align-items-center" id="tb-outlet">
+    <table class="table table-striped table-hover text-center align-items-center" id="tb-outlet">
       <thead>
         <tr>
           <th>#</th>

@@ -28,7 +28,7 @@
       @include('pick-up.create')
     </x-slot>
     <x-slot name="content_page">
-      <table class="table table-bordered text-center" id="pickup-table">
+      <table class="table table-striped table-hover text-center" id="pickup-table">
         <thead>
           <tr>
             <th>#</th>

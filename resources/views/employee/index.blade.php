@@ -18,7 +18,7 @@
   </x-slot>
   <x-slot name="header_page"><i class="bi bi-person-workspace"></i> Employee Table</x-slot>
   <x-slot name="content_page">
-    <table class="table table-bordered text-center" id="employee-table">
+    <table class="table table-striped table-hover text-center" id="employee-table">
       <thead>
         <tr>
           <th>#</th>

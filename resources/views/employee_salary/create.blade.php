@@ -57,7 +57,7 @@
                   </div>
                   <div class="mb-3">
                     <label for="mulai_bekerja" class="form-label">Mulai Bekerja</label>
-                    <input type="date" id="start-work" name="mulai_bekerja" value="{{ old('mulai_bekerja') }}" class="form-control @error('mulai_bekerja') is-invalid @enderror" id="mulai_bekerja">
+                    <input type="date" id="start-work" name="mulai_bekerja" value="{{ old('mulai_bekerja') }}" class="form-control @error('mulai_bekerja') is-invalid @enderror">
                     @error('mulai_bekerja')
                       <div class="invalid-feedback">
                         {{ $message }}

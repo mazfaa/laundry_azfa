@@ -24,7 +24,7 @@
     @include('inventory.create')
   </x-slot>
   <x-slot name="content_page">
-    <table class="table table-bordered text-center" id="inventory-table">
+    <table class="table table-striped table-hover text-center" id="inventory-table">
       <thead>
         <tr>
           <th>#</th>

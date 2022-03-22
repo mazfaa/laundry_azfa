@@ -156,8 +156,6 @@
   <!-- /footer content -->
   </div>
 </div>
-<!-- jQuery -->
-{{-- <script src="{{ asset('assets') }}/vendors/jquery/dist/jquery.min.js"></script> --}}
 <!-- Bootstrap -->
 <script src="{{ asset('assets') }}/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Bootstrap Bundle with Popper -->
@@ -184,6 +182,5 @@
 </script>
 <!-- Script js -->
 <script src="{{ asset('assets/build/js/script.js') }}"></script>
-<script src="{{ asset('assets/build/js/employee_salary.js') }}"></script>
 </body>
 </html>
