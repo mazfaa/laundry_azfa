@@ -14,6 +14,7 @@ use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\EmployeeSalaryController;
+use App\Http\Controllers\SimulationThingsTransaction;
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegistrationController::class, 'create'])->name('register');
@@ -44,6 +45,7 @@ Route::middleware(['auth', 'role:admin,cashier'])->group(function () {
     Route::resource('member', MemberController::class);
     Route::resource('inventory', InventoryController::class);
     Route::get('report', [ReportController::class, 'index'])->name('report.index');
+    Route::get('simulation_things_transaction', [SimulationThingsTransaction::class, 'index'])->name('simulation_things_transaction.index');
     Route::resource('transaction', TransactionController::class);
     Route::post('logout', LogoutController::class)->name('logout');
 });

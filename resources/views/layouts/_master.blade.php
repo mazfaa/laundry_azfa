@@ -178,9 +178,12 @@
     $('#inventory-table').DataTable();
     $('#karyawan-table').DataTable();
     $('#pickup-table').DataTable();
+    // $('#simulation-things-table').DataTable();
   });
 </script>
 <!-- Script js -->
+<script src="{{ asset('assets/js/rupiah.js') }}"></script>
 <script src="{{ asset('assets/build/js/script.js') }}"></script>
+<script src="{{ asset('assets/js/simulation-things-transaction.js') }}"></script>
 </body>
 </html>

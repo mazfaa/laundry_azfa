@@ -16,6 +16,7 @@ $(() => {
   const create = record => {
     const recordList = {};
     for (const index of record) {
+      console.log(index);
       recordList[index[0]] = index[0] === `id` || index[0] === 'jumlah_anak' ? parseInt(index[1]) : index[1];
     }
     recordList['gaji_awal'] = 2000000;
@@ -107,6 +108,7 @@ $(() => {
   $('#salary-form').on('submit', e => {
     e.preventDefault();
     const record = new FormData($('#salary-form')[0]);
+    console.log(record);
     create(record);
     $('#karyawan-table tbody').html(renderTable(employees));
     console.log(employees);
@@ -117,23 +119,23 @@ $(() => {
   document.getElementById('tanggal_pengadaan').valueAsDate = now;
 
   let rupiah = document.getElementById('rupiah');
-		rupiah.addEventListener('keyup', function (e) {
-			rupiah.value = formatRupiah(this.value, 'Rp. ');
-		});
- 
-		function formatRupiah (angka, prefix) {
-			let number_string = angka.replace(/[^,\d]/g, '').toString(),
-			split = number_string.split(','),
-			sisa = split[0].length % 3,
-			rupiah = split[0].substr(0, sisa),
-			ribuan = split[0].substr(sisa).match(/\d{3}/gi);
- 
-			if (ribuan) {
-				separator = sisa ? '.' : '';
-				rupiah += separator + ribuan.join('.');
-			}
- 
-			rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-			return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
-		}
+  rupiah.addEventListener('keyup', function (e) {
+    rupiah.value = formatRupiah(this.value, 'Rp. ');
+  });
+
+  function formatRupiah (angka, prefix) {
+    let number_string = angka.replace(/[^,\d]/g, '').toString(),
+    split = number_string.split(','),
+    sisa = split[0].length % 3,
+    rupiah = split[0].substr(0, sisa),
+    ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+    if (ribuan) {
+      separator = sisa ? '.' : '';
+      rupiah += separator + ribuan.join('.');
+    }
+
+    rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+    return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+  }
 });
