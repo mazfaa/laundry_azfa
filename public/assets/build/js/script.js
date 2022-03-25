@@ -114,13 +114,13 @@ $(() => {
     console.log(employees);
   });
 
-  const now = new Date();
-  document.getElementById('start-work').valueAsDate = now;
-  document.getElementById('tanggal_pengadaan').valueAsDate = now;
-
   let rupiah = document.getElementById('rupiah');
   rupiah.addEventListener('keyup', function (e) {
     rupiah.value = formatRupiah(this.value, 'Rp. ');
+  });
+
+  document.getElementById('things-data-format-number').addEventListener('keyup', function () {
+    document.getElementById('things-data-format-number').value = formatRupiah(this.value, 'Rp. ');
   });
 
   function formatRupiah (angka, prefix) {
@@ -138,4 +138,10 @@ $(() => {
     rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
     return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
   }
+
+  const now = new Date();
+  document.getElementById('start-work').valueAsDate = now;
+  document.getElementById('tanggal_pengadaan').valueAsDate = now;
+
+  
 });

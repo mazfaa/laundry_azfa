@@ -11,6 +11,7 @@ use App\Http\Controllers\PickupController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\ThingsDataController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\EmployeeSalaryController;
@@ -45,8 +46,9 @@ Route::middleware(['auth', 'role:admin,cashier'])->group(function () {
     Route::resource('member', MemberController::class);
     Route::resource('inventory', InventoryController::class);
     Route::get('report', [ReportController::class, 'index'])->name('report.index');
-    Route::get('simulation_things_transaction', [SimulationThingsTransaction::class, 'index'])->name('simulation_things_transaction.index');
     Route::resource('transaction', TransactionController::class);
+    Route::resource('things_data', ThingsDataController::class);
+    Route::get('simulation_things_transaction', [SimulationThingsTransaction::class, 'index'])->name('simulation_things_transaction.index');
     Route::post('logout', LogoutController::class)->name('logout');
 });
 
