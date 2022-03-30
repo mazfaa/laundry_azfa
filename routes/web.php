@@ -16,6 +16,7 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\EmployeeSalaryController;
 use App\Http\Controllers\SimulationThingsTransaction;
+use App\Http\Controllers\SimulationAccessoriesSalesController;
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegistrationController::class, 'create'])->name('register');
@@ -37,6 +38,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('report', [ReportController::class, 'index'])->name('report.index');
     Route::resource('transaction', TransactionController::class);
     Route::get('employee_salary', [EmployeeSalaryController::class, 'index'])->name('employee_salary.index');
+    Route::get('simulation_accessories_sales', [SimulationAccessoriesSalesController::class, 'index'])->name('simulation_accessories_sales.index');
     Route::resource('pickup', PickupController::class);
     Route::post('logout', LogoutController::class)->name('logout');
 });

@@ -179,11 +179,13 @@
     $('#karyawan-table').DataTable();
     $('#pickup-table').DataTable();
     $('#things-data-table').DataTable();
+    // $('#accessories-sales-table').DataTable();
     // $('#simulation-things-table').DataTable();
   });
 </script>
 <!-- Script js -->
 <script src="{{ asset('assets/build/js/script.js') }}"></script>
 <script src="{{ asset('assets/js/simulation-things-transaction.js') }}"></script>
+<script src="{{ asset('assets/js/simulation-accessories-sales.js') }}"></script>
 </body>
 </html>
