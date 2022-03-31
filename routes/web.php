@@ -13,6 +13,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ThingsDataController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\AbsenteeismController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\EmployeeSalaryController;
 use App\Http\Controllers\SimulationThingsTransaction;
@@ -38,6 +39,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('report', [ReportController::class, 'index'])->name('report.index');
     Route::resource('transaction', TransactionController::class);
     Route::get('employee_salary', [EmployeeSalaryController::class, 'index'])->name('employee_salary.index');
+    Route::resource('absenteeism', AbsenteeismController::class);
+    Route::post('absenteeism/store', [AbsenteeismController::class, 'updateStatus'])->name('absenteeism.updateStatus');
+    Route::get('absenteeism_export', [AbsenteeismController::class, 'export'])->name('absenteeism.export');
+    Route::post('absenteeism_import', [AbsenteeismController::class, 'import'])->name('absenteeism.import');
     Route::get('simulation_accessories_sales', [SimulationAccessoriesSalesController::class, 'index'])->name('simulation_accessories_sales.index');
     Route::resource('pickup', PickupController::class);
     Route::post('logout', LogoutController::class)->name('logout');

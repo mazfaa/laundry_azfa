@@ -8,6 +8,7 @@
 <li><a href="{{ route('simulation_things_transaction.index') }}"><i class="bi bi-wallet2"></i> Simulasi Barang Transaksi</a></li>
 <li><a href="{{ route('things_data.index') }}"><i class="bi bi-diagram-2-fill"></i> Data Barang</a></li>
 <li><a href="{{ route('simulation_accessories_sales.index') }}"><i class="bi bi-activity"></i> Penjualan Aksesoris</a></li>
+<li><a href="{{ route('absenteeism.index') }}"><i class="bi bi-file-earmark-check"></i> Absensi Kerja</a></li>
 <li><a href="{{ route('employee_salary.index') }}"><i class="bi bi-currency-dollar"></i> Gaji Karyawan</a></li>
 <li><a href="{{ route('pickup.index') }}"><i class="bi bi-send"></i> Penjemputan Laundry</a></li>
 <li><a href="{{ route('report.index') }}"><i class="bi bi-card-checklist"></i> Laporan</a></li>
