@@ -119,10 +119,6 @@ $(() => {
     rupiah.value = formatRupiah(this.value, 'Rp. ');
   });
 
-  document.getElementById('things-data-format-number').addEventListener('keyup', function () {
-    document.getElementById('things-data-format-number').value = formatRupiah(this.value, 'Rp. ');
-  });
-
   function formatRupiah (angka, prefix) {
     let number_string = angka.replace(/[^,\d]/g, '').toString(),
     split = number_string.split(','),
@@ -137,11 +133,5 @@ $(() => {
 
     rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
     return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
-  }
-
-  const now = new Date();
-  document.getElementById('start-work').valueAsDate = now;
-  document.getElementById('tanggal_pengadaan').valueAsDate = now;
-
-  
+  }  
 });

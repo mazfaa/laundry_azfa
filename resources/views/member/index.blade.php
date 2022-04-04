@@ -18,6 +18,16 @@
     </x-slot>
     <x-slot name="header_page"><i class="bi bi-people-fill"></i>Tabel Member</x-slot>
     <x-slot name="header_btn">
+			<a href="{{ route('member.export') }}" class="btn btn-sm btn-success">
+				<i class="bi bi-file-earmark-excel"></i> Export</a>
+			</a>
+
+			<button type="button" class="btn btn-sm btn-warning text-white" data-bs-toggle="modal" data-bs-target="#importMemberModal">
+				<i class="bi bi-file-earmark-excel"></i> import</a>
+			</button>
+
+			@include('member.import')
+
       <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#memberModal">
       <i class="bi bi-plus"></i> Member</a>
     </button>

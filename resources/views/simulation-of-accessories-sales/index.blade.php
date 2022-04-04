@@ -15,7 +15,7 @@
           </div>
           <div class="form-check form-check-inline align-middle">
             <input class="form-check-input" type="checkbox" id="sorting" value="sort">
-            <label class="form-check-label align-middle" for="inlineCheckbox1">Urutan</label>
+            <label class="form-check-label align-middle" for="sorting">Urutan</label>
           </div>
         </form>
       </div>

@@ -72,3 +72,9 @@
             </div>
         </div>
     </div>
+@push('scripts')
+    <script>
+        let tgl = document.getElementById('tanggal_pengadaan');
+        console.log(tgl)
+    </script>
+@endpush

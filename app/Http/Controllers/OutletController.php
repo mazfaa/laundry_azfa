@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Outlet;
+use App\Exports\OutletExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\OutletRequest;
+use App\Imports\OutletImport;
 
 class OutletController extends Controller
 {
@@ -76,5 +79,15 @@ class OutletController extends Controller
     {
         Outlet::whereId($id)->delete();
         return redirect('outlet')->with('deleted', 'Outlet Successfully Deleted!');
+    }
+
+    public function export () {
+        $date = date('Y-m-d');
+        return Excel::download(new OutletExport, $date . '_outlet_laundry.xlsx');
+    }
+
+    public function import () {
+        Excel::import(new OutletImport, request()->file('file'));
+        return back();
     }
 }

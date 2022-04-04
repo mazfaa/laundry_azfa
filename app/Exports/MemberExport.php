@@ -2,16 +2,16 @@
 
 namespace App\Exports;
 
-use App\Models\Package;
+use App\Models\Member;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
-class PackageExport implements FromCollection
+class MemberExport implements FromCollection
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        return Package::all();
+        return Member::all();
     }
 }

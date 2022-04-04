@@ -18,9 +18,15 @@
   </x-slot>
   <x-slot name="header_page"><i class="bi bi-box"></i> Tabel Paket</x-slot>
   <x-slot name="header_btn">
-    <a href="{{ route('export-package') }}" class="btn btn-sm btn-success">
+    <a href="{{ route('package.export') }}" class="btn btn-sm btn-success">
         <i class="bi bi-file-earmark-excel"></i> Export</a>
     </a>
+
+    <button type="button" class="btn btn-sm btn-warning text-white" data-bs-toggle="modal" data-bs-target="#importPackageModal">
+        <i class="bi bi-file-earmark-excel"></i> import</a>
+    </button>
+
+      @include('package.import')
 
     <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#packageModal">
       <i class="bi bi-plus"></i> Paket</a>

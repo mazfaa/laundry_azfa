@@ -61,7 +61,7 @@
                             <div class="mb-3">
                                 <label for="time_to_finish_work" class="form-label">Waktu Selesai Kerja</label>
                                 <input type="time" name="time_to_finish_work" value="{{ old('time_to_finish_work', $employee->time_to_finish_work) }}"
-                                    class="form-control @error('time_to_finish_work') is-invalid @enderror">
+                                    class="form-control @error('time_to_finish_work') is-invalid @enderror" readonly>
                                 @error('time_to_finish_work')
                                     <span class="invalid-feedback">
                                         {{ $message }}

@@ -81,11 +81,11 @@
             <td class="align-middle">
               <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal"
                   data-bs-target="#editThingsDataModal{{ $thing->id }}">
-                  <i class="bi bi-pencil-square"></i> Edit
+                  <i class="bi bi-pencil-square"></i>
               </button>
               <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
                   data-bs-target="#deleteThingsDataModal{{ $thing->id }}">
-                  <i class="bi bi-trash"></i> Delete
+                  <i class="bi bi-trash"></i>
               </button>
             </td>
           </tr>

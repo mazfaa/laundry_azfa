@@ -29,7 +29,7 @@ class CreateTransactionsTable extends Migration
             $table->double('discount');
             $table->integer('tax');
             $table->enum('status', ['Baru', 'Proses', 'Selesai', 'Diambil']);
-            $table->enum('paid', ['paid', 'not yet paid']);
+            $table->enum('paid', ['Sudah Dibayar', 'Belum Dibayar']);
             $table->timestamps();
         });
     }

@@ -84,6 +84,13 @@ class AbsenteeismController extends Controller
         return redirect('absenteeism')->with('status', 'The Absenteeism Successfully Edited!');
     }
 
+    public function updateTimeFinishWork (Request $request) {
+        Absenteeism::whereId($request->id)->update([
+            'time_to_finish_work' => now(),
+        ]);
+        return redirect('absenteeism')->with('status', 'The Absenteeism Successfully Edited!');
+    }
+
     /**
      * Remove the specified resource from storage.
      *

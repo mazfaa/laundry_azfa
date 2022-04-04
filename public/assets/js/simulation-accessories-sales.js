@@ -1,8 +1,9 @@
 $(() => {
   let accessories = [];
+  console.log(accessories)
 
   let harga = 0;
-  
+
   if (localStorage.getItem('accessories')) {
     accessories.push(...JSON.parse(localStorage.getItem('accessories')));
   }
@@ -21,9 +22,9 @@ $(() => {
 
   const discount = (price, jumlah) => {
     let discount = 0;
-    
+
     if (price >= 30000 || jumlah >= 10) {
-      discount = 0.20 * price; 
+      discount = 0.20 * price;
     }
 
     return discount;
@@ -36,7 +37,7 @@ $(() => {
       recordList[index[0]] = index[0] === `id` || index[0] === 'jumlah' || index[0] === 'price' ? Number(index[1]) : index[1];
     }
 
-    recordList['discount'] = discount(harga * recordList['jumlah'], recordList['jumlah']);  
+    recordList['discount'] = discount(harga * recordList['jumlah'], recordList['jumlah']);
     recordList['total_harga'] = harga * recordList['jumlah'] - recordList['discount'];
 
     accessories.push(recordList);
@@ -58,7 +59,7 @@ $(() => {
     let totalQty = 0;
     let totalDiskon = 0;
     let total = 0;
-    
+
     arr.forEach(item => {
       totalHarga += item.price;
       totalQty += item.jumlah;
@@ -105,6 +106,7 @@ $(() => {
     e.preventDefault();
     const record = new FormData(this);
     create(record);
+    console.log(record)
     $('#accessories-sales-table tbody').html(renderTable(accessories));
   });
 
@@ -126,28 +128,44 @@ $(() => {
 
   /* Sorting */
 
-  function sorting (arr, key) {
-    let i, j, id, value;
+  function onCheckedSort (arr, idField) {
+    for (let i = 1; i < arr.length; i++) {
+      let fo = i - 1, so = arr[i], id = arr[i][idField];
 
-    for (i = 1; i < arr.length; i++) {
-      value = arr[i];
-      id = arr[i][key];
-      j = i - 1;
-
-      while (j >= 0 && arr[j][key] > id) {
-        arr[j + 1] = arr[j];
-        j = j - 1;
+      while (fo >= 0 && arr[fo][idField] < id) {
+        arr[fo + 1] = arr[fo];
+        fo -= 1;
       }
 
-      arr[j + 1] = value;
+      arr[fo + 1] = so;
     }
 
     return arr;
   }
-  
+
+  function onUncheckedSort (arr, idField) {
+    for (let i = 1; i < arr.length; i++) {
+      let fo = i - 1, so = arr[i], id = arr[i][idField];
+
+      while (fo >= 0 && arr[fo][idField] > id) {
+        arr[fo + 1] = arr[fo];
+        fo -= 1;
+      }
+
+      arr[fo + 1] = so;
+    }
+
+    return arr;
+  }
+
   $('#sorting').on('change', function (e) {
     e.preventDefault();
-    accessories = sorting(accessories, 'id');
+    accessories = onCheckedSort(accessories, 'id');
     $('#accessories-sales-table tbody').html(renderTable(accessories));
+
+    if(!$(this).is(":checked")) {
+        accessories = onUncheckedSort(accessories, 'id');
+        $('#accessories-sales-table tbody').html(renderTable(accessories));
+    }
   });
 });

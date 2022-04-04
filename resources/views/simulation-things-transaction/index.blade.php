@@ -19,7 +19,7 @@
   <x-slot name="header_page"><i class="bi bi-wallet2"></i> Simulasi Transaksi Barang</x-slot>
   <x-slot name="header_btn">
     <div class="me-5">
-      
+
     </div>
     {{-- <a href="{{ route('export-salary') }}" class="btn btn-sm btn-success">
       <i class="bi bi-file-earmark-excel"></i> Export</a>
@@ -29,10 +29,10 @@
       <i class="bi bi-plus"></i> Transaksi</a>
     </button>
   @include('simulation-things-transaction.create')
-  
+
   </x-slot>
   <x-slot name="content_page">
-    <div class="row">
+    <div class="row d-flex justify-content-between">
       <div class="col-9 align-items-center d-flex mb-3">
         <form id="pay-method-form">
           <div class="form-check form-check-inline align-middle">
@@ -48,7 +48,7 @@
           </div>
         </form>
       </div>
-      <div class="col-3">
+      <div class="col-2">
         <form id="search-form">
           <div class="input-group mb-3">
             <input type="search" class="form-control rounded" placeholder="Cari..." aria-label="Recipient's username" aria-describedby="button-search" id="search-input">
@@ -72,7 +72,7 @@
         </tr>
       </thead>
       <tbody>
-        
+
       </tbody>
     </table>
   </x-slot>

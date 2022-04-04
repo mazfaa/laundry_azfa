@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\MemberExport;
 use App\Models\Member;
 use App\Http\Requests\MemberRequest;
+use App\Imports\MemberImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MemberController extends Controller
 {
@@ -77,5 +80,15 @@ class MemberController extends Controller
     {
         Member::whereId($id)->delete();
         return redirect('member')->with('deleted', 'Member Successfully Deleted!');
+    }
+
+    public function export () {
+        $date = date('Y-m-d');
+        return Excel::download(new MemberExport, $date . '_Member_laundry.xlsx');
+    }
+
+    public function import () {
+        Excel::import(new MemberImport, request()->file('file'));
+        return back();
     }
 }

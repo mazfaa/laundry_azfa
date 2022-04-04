@@ -28,7 +28,6 @@ class AbsenteeismRequest extends FormRequest
             'signin_date' => ['required'],
             'signin_time' => ['required'],
             'status' => ['required'],
-            'time_to_finish_work' => ['required'],
         ];
     }
 }

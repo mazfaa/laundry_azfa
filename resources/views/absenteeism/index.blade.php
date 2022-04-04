@@ -59,7 +59,7 @@
             <td class="align-middle">{{ $employee->signin_date }}</td>
             <td class="align-middle">{{ $employee->signin_time }}</td>
             <td class="align-middle">
-              <form action="{{ route('absenteeism.updateStatus') }}" method="post"> 
+              <form action="{{ route('absenteeism.updateStatus') }}" method="post">
                 @csrf
                 <input type="hidden" name="id" value="{{ $employee->id }}">
                 <select class="form-select form-select-sm" aria-label=".form-select example"
@@ -72,9 +72,19 @@
                   <option value="Cuti">Cuti</option>
                   <option value="Sakit">Sakit</option>
                 </select>
-              </form>  
+              </form>
             </td>
-            <td class="align-middle">{{ $employee->time_to_finish_work }}</td>
+            <td class="align-middle">
+                <form action="{{ route('absenteeism.updateTimeFinishWork') }}" method="post">
+                    @csrf
+                    <input type="hidden" name="id" value="{{ $employee->id }}">
+                    @if (!is_null($employee->time_to_finish_work))
+                        {{ $employee->time_to_finish_work }}
+                    @else
+                        <button type="submit" class="btn btn-sm btn-light">Selesai</button>
+                    @endif
+                </form>
+            </td>
             <td class="align-middle">
               <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal"
                   data-bs-target="#editAbsenteeismModal{{ $employee->id }}">

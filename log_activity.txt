@@ -1,0 +1,19 @@
+CREATE TABLE `log_absenteeisms` (
+    log_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    old_employee_name VARCHAR(191) NOT NULL,
+    new_employee_name VARCHAR(191) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+DELIMITER $$
+CREATE TRIGGER update_employee_name
+	BEFORE UPDATE
+    ON absenteeisms
+    FOR EACH ROW
+BEGIN
+	INSERT INTO log_absenteeisms
+    SET old_employee_name = OLD.employee_name,
+    	new_employee_name = NEW.employee_name,
+        created_at = NOW();
+END$$
+DELIMITER ;
