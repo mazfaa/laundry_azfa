@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Member;
+use App\Models\Package;
+use App\Models\Transaction;
+use App\Http\Requests\TransactionRequest;
 
 class TransactionController extends Controller
 {
@@ -13,7 +17,10 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        return view('transaction.index');
+        return view('transaction.index', [
+            'members' => Member::all(),
+            'packages' => Package::all(),
+        ]);
     }
 
     /**

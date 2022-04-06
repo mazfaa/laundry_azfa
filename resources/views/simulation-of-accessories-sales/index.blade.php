@@ -37,7 +37,7 @@
           <th>Warna</th>
           <th>Nama Pelanggan</th>
           <th>Harga</th>
-          <th>Jumlah Beli</th>
+          <th>Qty</th>
           <th>Diskon</th>
           <th>Total Harga</th>
           <th>Settings</th>

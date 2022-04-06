@@ -190,6 +190,7 @@
 <script src="{{ asset('assets/js/simulation-accessories-sales.js') }}"></script>
 <script src="{{ asset('assets/js/absenteeism.js') }}"></script>
 <script src="{{ asset('assets/js/inventory.js') }}"></script>
+<script src="{{ asset('assets/js/transaction.js') }}"></script>
 @stack('scripts')
 </body>
 </html>
